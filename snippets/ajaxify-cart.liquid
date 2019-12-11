@@ -1,0 +1,309 @@
+<script>
+
+Shopify.AjaxifyCart = (function($) {
+  
+  // Some configuration options.
+  // I have separated what you will never need to change from what
+  // you might change.
+  
+  var _config = {
+    
+    // What you might want to change
+    addToCartBtnLabel:             'Add to cart',
+    addedToCartBtnLabel:           'Thank you!',
+    addingToCartBtnLabel:          'Adding...',
+    soldOutBtnLabel:               'Sold Out',
+    howLongTillBtnReturnsToNormal: 1000, // in milliseconds.
+    cartCountSelector:             '.Header__CartCount',
+    cartTotalSelector:             '#cart-price',
+    // 'aboveForm' for top of add to cart form, 
+    // 'belowForm' for below the add to cart form, and 
+    // 'nextButton' for next to add to cart button.
+    //  feedbackPosition:              'nextButton',
+    
+    // What you will never need to change
+    addToCartBtnSelector:          '[type="submit"]',
+    addToCartFormSelector:         'form[action="/cart/add"]',
+    shopifyAjaxAddURL:             '/cart/add.js',
+    shopifyAjaxCartURL:            '/cart.js'
+  };
+  
+  // We need some feedback when adding an item to the cart.
+  // Here it is.  
+  // var _showFeedback = function(success, html, $addToCartForm) {
+  //   $('.ajaxified-cart-feedback').remove();
+  //   var feedback = '<p class="ajaxified-cart-feedback ' + success + '">' + html + '</p>';
+  //   switch (_config.feedbackPosition) {
+  //     case 'aboveForm':
+  //       $addToCartForm.before(feedback);
+  //       break;
+  //     case 'belowForm':
+  //       $addToCartForm.after(feedback);
+  //       break;
+  //     case 'nextButton':
+  //     default:
+  //       $addToCartForm.find(_config.addToCartBtnSelector).after(feedback);
+  //       break;   
+  //   }
+  //   // If you use animate.css
+  //   // $('.ajaxified-cart-feedback').addClass('animated bounceInDown');
+  //   $('.ajaxified-cart-feedback').slideDown();
+  // };
+  var _setText = function($button, label) {
+    if ($button.children().length) {
+      $button.children().each(function() {
+        if ($.trim($(this).text()) !== '') {
+          $(this).text(label);
+        }
+      });
+    }
+    else {
+      $button.val(label).text(label);
+    }
+  };
+  var _init = function() {   
+    $(document).ready(function() {
+
+      //console.log($(_config.addToCartFormSelector))
+
+      $(_config.addToCartFormSelector).submit(function(e) {
+        e.preventDefault();
+        var $addToCartForm = $(this);
+        var $addToCartBtn = $addToCartForm.find(_config.addToCartBtnSelector);
+        _setText($addToCartBtn, _config.addingToCartBtnLabel);
+        $addToCartBtn.addClass('disabled').prop('disabled', true);
+        var id = $(this).find($('input[name="id"]')).val();
+        var quantity = $(this).find($('input[name="quantity"]')).val();
+        console.log(id, quantity)
+        // Add to cart.
+        $.ajax({
+          url: _config.shopifyAjaxAddURL,
+          dataType: 'json',
+          type: 'post',
+          data: { quantity: quantity, id: id },
+          success: function(itemData) {
+            console.log(itemData)
+            // Re-enable add to cart button.
+            $addToCartBtn.addClass('inverted');
+            _setText($addToCartBtn, _config.addedToCartBtnLabel);
+            // _showFeedback('success','<i class="fa fa-check"></i> Added to cart! <a href="/cart">View cart</a> or <a href="/collections/all">continue shopping</a>.',$addToCartForm);
+            window.setTimeout(function(){
+              $addToCartBtn.prop('disabled', false).removeClass('disabled').removeClass('inverted');
+              _setText($addToCartBtn,_config.addToCartBtnLabel);
+            }, _config.howLongTillBtnReturnsToNormal);
+            // Update cart count and show cart link.
+            $.getJSON(_config.shopifyAjaxCartURL, function(cart) {
+              //console.log(cart)
+              if (_config.cartCountSelector && $(_config.cartCountSelector).length) {
+                var value = $(_config.cartCountSelector).html() || '0';
+                $(_config.cartCountSelector).html(value.replace(/[0-9]+/,cart.item_count)).removeClass('hidden-count');
+              }
+              if (_config.cartTotalSelector && $(_config.cartTotalSelector).length) {
+                if (typeof Currency !== 'undefined' && typeof Currency.moneyFormats !== 'undefined') {
+                  var newCurrency = '';
+                  if ($('[name="currencies"]').length) {
+                    newCurrency = $('[name="currencies"]').val();
+                  }
+                  else if ($('#currencies span.selected').length) {
+                    newCurrency = $('#currencies span.selected').attr('data-currency');
+                  }
+                  if (newCurrency) {
+                    $(_config.cartTotalSelector).html('<span class=money>' + Shopify.formatMoney(Currency.convert(cart.total_price, "{{ shop.currency }}", newCurrency), Currency.money_format[newCurrency]) + '</span>');
+                  } 
+                  else {
+                    $(_config.cartTotalSelector).html(Shopify.formatMoney(cart.total_price, "{{ shop.money_format | remove: "'" | remove: '"' }}"));
+                  }
+                }
+                else {
+                  $(_config.cartTotalSelector).html(Shopify.formatMoney(cart.total_price, "{{ shop.money_format | remove: "'" | remove: '"' }}"));
+                }
+              };
+
+              refreshCart(cart);
+
+            });        
+          }, 
+          error: function(XMLHttpRequest) {
+            var response = eval('(' + XMLHttpRequest.responseText + ')');
+            response = response.description;
+            if (response.slice(0,4) === 'All ') {
+              //_showFeedback('error', response.replace('All 1 ', 'All '), $addToCartForm);
+              $addToCartBtn.prop('disabled', false);
+              _setText($addToCartBtn, _config.soldOutBtnLabel);
+              $addToCartBtn.prop('disabled',true);
+            }
+            else {
+              //_showFeedback('error', '<i class="fa fa-warning"></i> ' + response, $addToCartForm);
+              $addToCartBtn.prop('disabled', false).removeClass('disabled');
+              _setText($addToCartBtn, _config.addToCartBtnLabel);
+            }
+          }
+        });   
+        return false;   
+      });
+    });
+  };
+  return {
+    init: function(params) {
+        // Configuration
+        params = params || {};
+        // Merging with defaults.
+        $.extend(_config, params);
+        // Action
+        $(function() {
+          _init();
+        });
+    },    
+    getConfig: function() {
+      return _config;
+    }
+  }  
+})(jQuery);
+
+Shopify.AjaxifyCart.init();
+
+function refreshCart(cart) {
+
+    // DISPLAY NEW ITEMS ON CART
+
+    var cart_items_html = "";
+    var cart_action_html = "";
+    var cart_savings_html = "";
+    var $cart = $("#sidebar-cart form");
+    var discounted_price_total = 0;
+    var total_savings = 0;
+    var currency = Shopify.currency.active;
+    if (currency == 'EUR') {
+      var currency_symbol = '€';
+    }
+
+    var cart_container_html = '<div class="Drawer__Container"><div class="Cart__ItemList"></div></div>';
+
+    var cart_footer_html = "";
+
+    $.each(cart.items, function(index, item) {
+
+      //console.log(item)
+
+      var line_id = index + 1;
+
+      cart_items_html += '<div class="CartItemWrapper"><div class="CartItem">';
+
+      if (item.image) {
+        cart_items_html += '<div class="CartItem__ImageWrapper AspectRatio">' +
+        '<div class="AspectRatio" style="--aspect-ratio: 1.0">' + '<img src="' + item.image.replace(/(\.[^.]*)$/, "_compact$1").replace('http:', '') + '" class="CartItem__Image" alt="' + item.title + '" />' +
+          '</div></div>';
+      }
+
+      cart_items_html += '<div class="CartItem__Info">';
+
+      cart_items_html += '<h2 class="CartItem__Title Heading"><a href="'+ item.url +'">'+ item.title +'</a></h2>';
+
+      cart_items_html += '<div class="CartItem__Meta Heading Text--subdued">';
+
+      if(!item.product_has_only_default_variant) {
+        cart_items_html += '<p class="CartItem__Variant">'+ item.variant_title +'</p>';
+      }
+
+      if(item.properties) {
+        cart_items_html += '<ul class="CartItem__PropertyList">';
+        $.each(item.properties, function(title, value) {
+            if (value) {
+              cart_items_html += '<li class="CartItem__Property">' + title +': ' + value + '</li>';
+            }
+        });
+        cart_items_html += '</ul>';
+      }
+
+      cart_items_html += '<div class="CartItem__PriceList">';
+
+      var price = item.price / 100;
+
+      cart_items_html += '<span class="CartItem__Price Price" data-money-convertible>' + currency_symbol + price.toFixed(2) +'</span>';
+      cart_items_html += '</div>';
+
+      cart_items_html += '</div>'; // Fin CartItem__Meta
+
+      cart_items_html += '<div class="CartItem__Actions Heading Text--subdued" style="text-align: center"><div class="CartItem__QuantitySelector"><div class="QuantitySelector">';
+
+      var minus = '<svg class="{{ icon_class }}" role="presentation" viewBox="0 0 16 2"><path d="M1,1 L15,1" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="square"></path></svg>';
+
+      var plus = '<svg class="{{ icon_class }}" role="presentation" viewBox="0 0 16 16"><g stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M8,1 L8,15"></path><path d="M1,8 L15,8"></path></g></svg>';
+
+      var quantity_minus_one = (item.quantity - 1);
+      var quantity_plus_one = (item.quantity + 1);
+
+      cart_items_html += '<a class="QuantitySelector__Button Link Link--primary" title="{{ 'cart.items.set_quantity' }} : '+ quantity_minus_one +'" href="{{ routes.cart_change_url }}?quantity='+ quantity_minus_one +'&id='+ item.key +'" data-quantity="'+ quantity_minus_one +'" data-line-id="'+ item.key +'" data-action="update-item-quantity">' + minus + '</a>';
+
+      cart_items_html += '<input type="text" name="updates[]" id="updates_'+ item.key +'" class="QuantitySelector__CurrentQuantity" pattern="[0-9]*" data-line-id="'+ item.key +'" value="'+ item.quantity +'">';
+
+      cart_items_html += '<a class="QuantitySelector__Button Link Link--primary" title="{{ 'cart.items.set_quantity' }} : '+ quantity_plus_one +'" href="{{ routes.cart_change_url }}?quantity='+ quantity_plus_one +'&id='+ item.key +'" data-quantity="'+ quantity_plus_one +'" data-line-id="'+ item.key +'" data-action="update-item-quantity">' + plus + '</a>';
+
+      cart_items_html += '</div></div>';
+
+      cart_items_html += '<a href="{{ routes.cart_change_url }}?quantity=0&id='+ item.key +'" class="CartItem__Remove Link Link--underline Link--underlineShort" data-quantity="0" data-line-id="'+ item.key +'" data-action="remove-item">{{ 'cart.items.remove' | t }}</a>'
+
+
+      cart_items_html += '</div>'; // Fin CartItem__Actions
+
+      cart_items_html += '</div>'; // fin CartItem__Info
+
+      cart_items_html += '</div></div>'; // Fin du Drawer
+
+    });
+
+
+    $('.Drawer__Main').html(cart_container_html);
+    $('.Cart__ItemList').html(cart_items_html);
+    $('#sidebar-cart').attr('aria-hidden', 'false');
+
+    $('.Drawer__Close').on('click', function(){
+      $('#sidebar-cart').attr('aria-hidden', 'true');
+    })
+
+    // cart_footer_html += '<div class="Drawer__Footer" data-drawer-animated-bottom>';
+
+
+
+    // cart_footer_html += '<button type="submit" name="checkout" class="Cart__Checkout Button Button--primary Button--full"><span>{{- 'cart.general.checkout' | t -}}</span><span class="Button__SeparatorDot"></span><span data-money-convertible>{{ cart.total_price | money_without_trailing_zeros }}</span></button>';
+
+
+
+    // cart_footer_html += '</div>';
+
+
+    // $('.Drawer__Content').append(cart_footer_html);
+
+}
+
+</script>
+
+{% comment %}
+  If you want to animate your feedback message.
+{% endcomment %}
+
+{% comment %}
+{{ '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css' | stylesheet_tag }}
+{% endcomment %}
+
+{{ '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' | stylesheet_tag }}
+
+<style>
+.ajaxified-cart-feedback {
+  display: block;
+  line-height: 36px;
+  font-size: 90%;
+  vertical-align: middle;
+}
+.ajaxified-cart-feedback.success { 
+  color: #3D9970;
+}
+.ajaxified-cart-feedback.error { 
+  color: #FF4136; 
+} 
+.ajaxified-cart-feedback a {
+  border-bottom: 1px solid;
+}
+</style>
+
+
