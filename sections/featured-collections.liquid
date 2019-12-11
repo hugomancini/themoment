@@ -91,7 +91,7 @@
                 <div class="ProductItem">
                   <div class="ProductItem__Wrapper">
 
-                    <a href="#" class="ProductItem__ImageWrapper">
+                    <a href="#" class="ProductItem__ImageWrapper featured_image">
                       {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
                       {{ 'product-' | append: current | placeholder_svg_tag: 'ProductItem__Image PlaceholderSvg PlaceholderSvg--dark' }}
                     </a>
