@@ -1,0 +1,64 @@
+<section id="section-{{ section.id }}">
+  <h1>AVIS</h1>
+{%- assign product = all_products[section.settings.product_for_review] -%}
+
+<h1>{{ product.id }}</h1>
+
+<div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+
+<h1>2e section</h1>
+
+<div class="yotpo bottomLine"
+    data-appkey="AEu2ZwEPqI4jq0gfLtj6eFFriNjq1KUNk97xjT9k"
+    data-domain="{{shop.permanent_domain | escape }}"
+    data-product-id="{{ product.id }}"
+    data-product-models="{{ product.id }}"
+    data-name="{{ product.title | escape }}"
+    data-url="{{ shop.url }}{{ product.url }}"
+    data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+    data-description="{{ product.description | escape }}"
+    data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+</div>
+
+
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Test Section",
+  "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_section",
+        "label": "Show section",
+        "default": true
+      },
+      {
+        "type": "product",
+        "id": "product_for_review",
+        "label": "Product for reviews"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_product_info",
+        "label": "Show product info",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show vendor",
+        "default": false
+      }
+    ],
+  "presets": [
+    {
+      "category": "Promotional",
+      "name": "Reviews Section",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
