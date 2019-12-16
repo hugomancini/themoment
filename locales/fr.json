@@ -107,8 +107,8 @@
       "play": "Lancer la vidéo"
     },
     "newsletter": {
-      "input": "Entrez votre email",
-      "submit": "Valider",
+      "input": "Entrez votre adresse mail",
+      "submit": "s'abonner",
       "success": "Vous êtes maintenant inscrit à notre newsletter"
     }
   },

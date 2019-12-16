@@ -52,6 +52,17 @@ body {
     padding: 0 !important;
 }
 
+.page_titles {
+  font-size: 10vw;
+  letter-spacing:0.3rem;
+  text-align: center;
+}
+
+.flex-center {
+  display:flex;
+  justify-content:center;
+}
+
 h1, h2, h3, h4, h5, h6,
 .Heading, .u-h1, .u-h2, .u-h3, .u-h4, .u-h5, .u-h6, .u-h7, .u-h8 {
 	font-family: 'SuperRaw-Bold' !important;
@@ -122,6 +133,7 @@ h1, h2, h3, h4, h5, h6,
 .full-size-title, .mid-size-title, .down-size-title {
   text-transform: uppercase;
   line-height: 1;
+  font-family: 'Wasa-Regular' !important;
 }
 
 .full-size-title {
@@ -217,6 +229,81 @@ h1, h2, h3, h4, h5, h6,
 
 /* HOMEPAGE */
 
+// NL //
+#shopify-section-1576162910639, #shopify-section-newsletter {
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+
+  .ImageHero {
+    background-color: white !important;
+    min-height: 370px;
+  }
+
+  .Form {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .Newsletter__Inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      min-height: 110px;
+      width: 300px;
+
+      input {
+        width: 100%;
+        min-width: 99%;
+      }
+    }
+
+  .social-link {
+    font-size: 1.2vw;
+  }
+
+  .social-links {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .input-container {
+    width: 100%;
+    margin-bottom: 17px;
+    border-bottom: solid 1px black;
+  }
+
+  .Form__Input {
+    text-transform: uppercase;
+    font-weight: 100;
+    text-align: center;
+    border: none;
+    -webkit-appearance: textarea;
+    padding: 12px 14px 5px 14px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .Form__Submit {
+    margin: 0 !important;
+  }
+
+  .SectionHeader__Heading {
+    width: 650px !important;
+    font-size: 3vw;
+    letter-spacing: 0vw;
+    line-height: 1;
+    color: black !important;
+    margin-block-end: 16px;
+    text-align: center;
+    min-width: 700px;
+  }
+}
+
 .yotpo-label {
   display:none;
 }
@@ -231,8 +318,43 @@ h1, h2, h3, h4, h5, h6,
   font-size: 3vw;
   text-align: center;
   text-decoration: underline;
-
+  letter-spacing: 0vw;
 }
+
+
+// CONTACT PAGE
+
+#shopify-section-page-contact-template {
+
+  .PageHeader {
+    margin: 40px 0 20px 0 !important;
+  }
+
+  #contact_title {
+    line-height: 0.8;
+  }
+
+  .contact_description {
+    text-align: center;
+    font-weight: 900;
+    max-width: 690px;
+    line-height: 1.2;
+  }
+
+  .PageContent {
+    margin-top: 0 !important;
+
+    .Rte .Form {
+      margin-top: 2rem !important;
+    }
+
+    .Form__Submit {
+      font-weight: 600;
+    }
+  }
+}
+
+
 
 #shopify-section-1576161138248 {
 

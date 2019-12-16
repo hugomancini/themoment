@@ -1,9 +1,13 @@
 <div class="Container">
   <header class="PageHeader">
     <div class="SectionHeader SectionHeader--center">
-      <h1 class="SectionHeader__Heading Heading u-h1">{{ page.title }}</h1>
+      <h1 class="SectionHeader__Heading Heading u-h1 page_titles" id="contact_title">{{ page.title }}</h1>
     </div>
   </header>
+
+  <div class="flex-center">
+    <p class="contact_description">{{ section.settings.contact_description }}</p>
+  </div>
 
   <div class="PageContent PageContent--narrow">
     <div class="Rte">
@@ -30,14 +34,21 @@
 
         <div class="Form__Group">
           <div class="Form__Item">
-            <input type="text" class="Form__Input" name="contact[name]" aria-label="{{ 'contact.form.name' | t }}" placeholder="{{ 'contact.form.name' | t }}" required {% if customer %}value="{{ customer.name }}"{% endif %}>
-            <label class="Form__FloatingLabel">{{ 'contact.form.name' | t }}</label>
+            <input type="text" class="Form__Input" name="Prénom" aria-label="Prénom" placeholder="Prénom" required {% if customer %}value="{{ customer.first_name }}"{% endif %}>
+            <label class="Form__FloatingLabel">Prénom</label>
           </div>
 
           <div class="Form__Item">
-            <input type="email" class="Form__Input" name="contact[email]" aria-label="{{ 'contact.form.email' | t }}" placeholder="{{ 'contact.form.email' | t }}" required {% if customer %}value="{{ customer.email }}"{% endif %}>
-            <label class="Form__FloatingLabel">{{ 'contact.form.email' | t }}</label>
+            <input type="text" class="Form__Input" name="Nom" aria-label="Nom" placeholder="Nom" required {% if customer %}value="{{ customer.last_name }}"{% endif %}>
+            <label class="Form__FloatingLabel">Nom</label>
           </div>
+
+
+        </div>
+
+        <div class="Form__Item">
+          <input type="email" class="Form__Input" name="contact[email]" aria-label="Email*" placeholder="Email*" required {% if customer %}value="{{ customer.email }}"{% endif %}>
+          <label class="Form__FloatingLabel">{{ 'contact.form.email' | t }}</label>
         </div>
 
         {%- for block in section.blocks -%}
@@ -96,7 +107,13 @@
 {% schema %}
 {
   "name": "Contact page",
-  "settings": [],
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "contact_description",
+      "label": "Description"
+    }
+  ],
   "blocks": [
     {
       "type": "text",

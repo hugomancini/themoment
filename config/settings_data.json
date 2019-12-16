@@ -481,6 +481,41 @@
           "grid_mobile_items_per_row": "1",
           "grid_desktop_items_per_row": 3
         }
+      },
+      "1576159485154": {
+        "type": "testsection",
+        "settings": {
+          "show_section": true,
+          "product_for_review": "creme-hydratante-hyaluronique-2",
+          "show_product_info": true,
+          "show_vendor": false
+        }
+      },
+      "1576161138248": {
+        "type": "instagram-feed",
+        "settings": {
+          "subheading": "@the.moment",
+          "title": "INSTAGRAM",
+          "access_token": "",
+          "image_count": 15,
+          "button_text": "",
+          "button_url": ""
+        }
+      },
+      "1576162910639": {
+        "type": "newsletter",
+        "settings": {
+          "section_size": "small",
+          "image": "",
+          "text_color": "#000000",
+          "button_color": "#ffffff",
+          "subheading": "",
+          "title": "REJOIGNEZ LE MOUVEMENT,",
+          "title_two": "INSCRIVEZ-VOUS À NOTRE NEWSLETTER",
+          "content": "",
+          "insta_url": "https:\/\/developer.mozilla.org\/fr\/docs\/Web\/CSS\/text-transform",
+          "fb_url": ""
+        }
       }
     },
     "content_for_index": [
@@ -489,7 +524,10 @@
       "1574415056316",
       "1573038978991",
       "1575470506020",
-      "1575478328773"
+      "1575478328773",
+      "1576159485154",
+      "1576161138248",
+      "1576162910639"
     ]
   },
   "presets": {
