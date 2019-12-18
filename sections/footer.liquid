@@ -30,6 +30,14 @@
                   {% render 'social-media', class: 'Footer__Social', spacing: 'loose' %}
                 {%- endif -%}
 
+                {%- if block.settings.show_copyright -%}
+                     <div class="Footer__Copyright">
+                            <a href="https://www.lobstter.com" class="Footer__StoreName Heading u-h7 Link Link--secondary">site by lobsTTer</a>
+                  <a href="{{ routes.root_url }}" class="Footer__StoreName Heading u-h7 Link Link--secondary">© {{ shop.name }}</a>
+
+                     </div>
+                {%- endif -%}
+
               {%- when 'links' -%}
                 {%- assign linklist = linklists[block.settings.menu] -%}
 
@@ -90,26 +98,7 @@
     {%- endif -%}
 
     <div class="Footer__Aside">
-      <div class="Footer__Copyright">
-             <a href="https://www.lobstter.com" class="Footer__StoreName Heading u-h7 Link Link--secondary">site by lobsTTer</a>
-   <a href="{{ routes.root_url }}" class="Footer__StoreName Heading u-h7 Link Link--secondary">© {{ shop.name }}</a>
-
-      </div>
-
-
-      {%- if section.settings.show_payment_methods -%}
-        {%- capture payment_methods -%}
-          {%- for type in shop.enabled_payment_types -%}
-            <li class="HorizontalList__Item">{{ type | payment_type_svg_tag }}</li>
-          {%- endfor -%}
-        {%- endcapture -%}
-
-        {%- if payment_methods != blank -%}
-          <ul class="Footer__PaymentList HorizontalList">
-            {{ payment_methods }}
-          </ul>
-        {%- endif -%}
-      {%- endif -%}
+        <div class="footer_text">{{ section.settings.subfooter }}</div>
     </div>
   </div>
 </footer>
@@ -137,7 +126,12 @@
       "id": "logo_b",
       "label": "footer logo2",
       "info": "48 x 48px .png recommended"
-    }
+    },
+        {
+          "type": "textarea",
+          "id": "subfooter",
+          "label": "Subfooter text"
+        }
   ],
   "blocks": [
     {
@@ -161,6 +155,12 @@
           "id": "show_social_media",
           "label": "Show social media",
           "info": "Make sure to have properly configured your social media in the theme settings.",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_copyright",
+          "label": "Show copyright",
           "default": true
         }
       ]

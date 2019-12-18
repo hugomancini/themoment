@@ -204,10 +204,10 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .ProductItem {
-  height: 420px;
-  width: 280px;
-  margin-left:10px;
-  margin-right:10px;
+  height: 480px;
+  width: 360px;
+  margin-left:30px;
+  margin-right:30px;
   margin-bottom: 100px;
     .ProductItem__Title {
       min-height: 40px;
@@ -255,7 +255,14 @@ h1, h2, h3, h4, h5, h6,
     padding: 0 !important;
   }
 
+  .Footer__Copyright {
+    a {
+      font-size: 0.8rem !important;
+    }
+  }
+
   .Footer__Inner {
+    padding: 40px 0 30px 0 !important;
     width: 100%;
     margin-left: -20px !important;
     margin-right: -20px !important;
@@ -264,8 +271,23 @@ h1, h2, h3, h4, h5, h6,
     }
   }
 
+  .Footer__Aside {
+    margin-top: 0px !important;
+    border-top: solid 1px;
+    padding-top: 20px;
+    display:flex;
+    justify-content: space-around;
+    }
+
   .Footer__Block {
     flex: auto;
+    margin-bottom: 0px;
+  }
+
+  .Footer__Block--text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .logos_footer {
@@ -280,6 +302,13 @@ h1, h2, h3, h4, h5, h6,
 
   .logo_footer {
     margin: 8px;
+  }
+
+  .footer_text {
+    text-align: center;
+    font-weight: 900;
+    width:70%;
+
   }
 
 // NL //
@@ -594,13 +623,6 @@ h1, h2, h3, h4, h5, h6,
     }
   }
 }
-
-
-
-
-
-
-
 
 
 
