@@ -86,6 +86,13 @@
           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
         </h2>
 
+        {%- for tag in product.tags -%}
+          {%- if tag contains 'SUB-' -%}
+            <h2 class="ProductItem__Title Heading item_title">{{ tag | split: 'SUB-' | last }}</h2>
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
         {%- if show_color_swatch -%}
           {%- assign color_swatch_list = '' -%}
 

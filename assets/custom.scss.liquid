@@ -169,7 +169,7 @@ h1, h2, h3, h4, h5, h6,
   font-family: 'SuperRaw-Bold' !important;
 }
 
-.item_title, .item_price, .capacity {
+ .item_price, .capacity {
   font-family: 'Wasa-Bold' !important;
 }
 
@@ -210,7 +210,7 @@ h1, h2, h3, h4, h5, h6,
   margin-right:30px;
   margin-bottom: 100px;
     .ProductItem__Title {
-      min-height: 40px;
+      font-family: 'SuperRaw-Bold !important'
     }
     .ProductForm {
       display: none;
@@ -219,6 +219,9 @@ h1, h2, h3, h4, h5, h6,
       display: none;
     }
     &:hover .ProductForm {
+      display: block;
+    }
+    &:hover .ProductItem__Label {
       display: block;
     }
     .Button--full {
@@ -625,6 +628,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 
+.ProductItem__Label {
+  display:none;
+}
 
 
 
