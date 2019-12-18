@@ -88,7 +88,7 @@
 
         {%- for tag in product.tags -%}
           {%- if tag contains 'SUB-' -%}
-            <h2 class="ProductItem__Title Heading item_title">{{ tag | split: 'SUB-' | last }}</h2>
+            <h2 class="item_subtitle">{{ tag | split: 'SUB-' | last }}</h2>
             {%- break -%}
           {%- endif -%}
         {%- endfor -%}
