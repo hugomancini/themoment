@@ -249,7 +249,7 @@
       "title": "Inscription",
       "description": "Veuillez remplir les champs suivants :",
       "first_name": "Prénom",
-      "last_name": "Nom de famille",
+      "last_name": "Nom",
       "email": "Email",
       "password": "Mot de passe",
       "submit": "Créer mon compte"
@@ -381,7 +381,7 @@
       "name": "Votre nom",
       "email": "Votre email",
       "message": "Votre message",
-      "submit": "Envoyer",
+      "submit": "Envoyer votre message",
       "successfully_sent": "Votre message a été envoyé avec succès."
     }
   },
@@ -389,5 +389,11 @@
     "month_day_year": "%d %B %Y",
     "month_day_year_short": "%d\/%B\/%Y",
     "month_day_year_time": "%d %B %Y à %I:%M"
+  },
+  "shopify": {
+    "attributes": {
+      "first_name": "Prénom",
+      "last_name": "Nom"
+    }
   }
 }

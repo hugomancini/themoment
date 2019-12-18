@@ -7,7 +7,7 @@
 		<div class="Grid__Cell 1/2--phone 1/2--tablet 1/3--lap-and-up">
 			<img src="{{ block.settings.image | img_url: 'master' }}" alt="">
 			{%- if block.settings.content != blank -%}
-				<p>{{ block.settings.content }}</p>
+				<div class="press_content">{{ block.settings.content }}</div>
 			{% endif %}
 		</div>
 	{%- endfor -%}

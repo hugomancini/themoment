@@ -1,3 +1,9 @@
+<header class="PageHeader">
+  <div class="SectionHeader SectionHeader--center">
+    <h1 class="SectionHeader__Heading Heading u-h1 page_titles" id="faq_title">{{ page.title }}</h1>
+  </div>
+</header>
+
 {%- assign has_section_separator = false -%}
 
 {%- for block in section.blocks -%}
@@ -12,7 +18,7 @@
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'separator' -%}
-          <h1 class="Faq__Section Heading u-h1" {{ block.shopify_attributes }}>
+          <h1 style="{% if block.settings.show_top_border %} border-top: solid 1px black{% endif %}"class="Faq__Section Heading u-h1" {{ block.shopify_attributes }}>
             <span class="Anchor" id="block-{{ block.id }}"></span>
             {{- block.settings.title | escape -}}
           </h1>
@@ -84,6 +90,12 @@
           "id": "title",
           "label": "Heading",
           "default": "Default"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_top_border",
+          "label": "Show top border",
+          "default": true
         }
       ]
     },

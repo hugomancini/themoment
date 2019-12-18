@@ -82,7 +82,7 @@
           <p class="ProductItem__Vendor Heading">{{ product.vendor }}</p>
         {%- endif -%}
 
-        <h2 class="ProductItem__Title Heading">
+        <h2 class="ProductItem__Title Heading item_title">
           <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
         </h2>
 
@@ -150,14 +150,14 @@
               {{ product.metafields.custom_fields["contenance"] }}
             </span>
             {%- if product.compare_at_price > product.price -%}
-              <span class="ProductItem__Price Price Price--highlight Text--subdued" data-money-convertible>{{ product.price | money_without_trailing_zeros }}</span>
-              <span class="ProductItem__Price Price Price--compareAt Text--subdued" data-money-convertible>{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+              <span class="item_price ProductItem__Price Price Price--highlight Text--subdued" data-money-convertible>{{ product.price | money_without_trailing_zeros }}</span>
+              <span class="item_price ProductItem__Price Price Price--compareAt Text--subdued" data-money-convertible>{{ product.compare_at_price | money_without_trailing_zeros }}</span>
             {%- elsif product.price_varies -%}
               {%- capture formatted_min_price -%}<span data-money-convertible>{{ product.price_min | money_without_trailing_zeros }}</span>{%- endcapture -%}
               {%- capture formatted_max_price -%}<span data-money-convertible>{{ product.price_max | money_without_trailing_zeros }}</span>{%- endcapture -%}
-              <span class="ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
+              <span class="item_price ProductItem__Price Price Text--subdued">{{ 'collection.product.from_price_html' | t: min_price: formatted_min_price, max_price: formatted_max_price }}</span>
             {%- else -%}
-              <span class="ProductItem__Price Price Text--subdued" data-money-convertible>{{ product.price | money_without_trailing_zeros }}</span>
+              <span class="item_price ProductItem__Price Price Text--subdued" data-money-convertible>{{ product.price | money_without_trailing_zeros }}</span>
             {%- endif -%}
           </div>
         {%- endif -%}
@@ -185,9 +185,9 @@
 
 <script>
 Shopify.AjaxifyCart = (function($) {
-  
+
   var _config = {
-    
+
     addToCartBtnLabel:             'Add to cart',
     addedToCartBtnLabel:           'Thank you!',
     addingToCartBtnLabel:          'Adding...',
@@ -215,7 +215,7 @@ Shopify.AjaxifyCart = (function($) {
     }
   };
 
-  var _init = function() {   
+  var _init = function() {
     $(document).ready(function() {
 
       $(_config.addToCartFormSelector).submit(function(e) {
@@ -261,7 +261,7 @@ Shopify.AjaxifyCart = (function($) {
                   }
                   if (newCurrency) {
                     $(_config.cartTotalSelector).html('<span class=money>' + Shopify.formatMoney(Currency.convert(cart.total_price, "{{ shop.currency }}", newCurrency), Currency.money_format[newCurrency]) + '</span>');
-                  } 
+                  }
                   else {
                     $(_config.cartTotalSelector).html(Shopify.formatMoney(cart.total_price, "{{ shop.money_format | remove: "'" | remove: '"' }}"));
                   }
@@ -273,8 +273,8 @@ Shopify.AjaxifyCart = (function($) {
 
               refreshCart(cart);
 
-            });        
-          }, 
+            });
+          },
           error: function(XMLHttpRequest) {
             var response = eval('(' + XMLHttpRequest.responseText + ')');
             response = response.description;
@@ -290,8 +290,8 @@ Shopify.AjaxifyCart = (function($) {
               _setText($addToCartBtn, _config.addToCartBtnLabel);
             }
           }
-        });   
-        return false;   
+        });
+        return false;
       });
     });
   };
@@ -305,11 +305,11 @@ Shopify.AjaxifyCart = (function($) {
         $(function() {
           _init();
         });
-    },    
+    },
     getConfig: function() {
       return _config;
     }
-  }  
+  }
 })(jQuery);
 
 Shopify.AjaxifyCart.init();
@@ -431,7 +431,7 @@ function refreshCart(cart) {
     } else {
       $('button[name="checkout"]').find('span[data-money-convertible]').text(currency_symbol + total_price.toFixed(2))
     }
-    
+
     $('#sidebar-cart').attr('aria-hidden', 'false');
 
     setTimeout(function(){

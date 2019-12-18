@@ -34,7 +34,7 @@
                 {%- assign linklist = linklists[block.settings.menu] -%}
 
                 {%- if linklist != empty -%}
-                  <h2 class="Footer__Title Heading u-h6">{{ linklist.title | escape }}</h2>
+                  <h2 class="Footer__Title Heading u-h6" style="display:none;">{{ linklist.title | escape }}</h2>
 
                   <ul class="Linklist">
                     {%- for link in linklist.links -%}
@@ -70,8 +70,22 @@
                   {%- endif -%}
                 {%- endform -%}
             {%- endcase -%}
+
+
+
+
           </div>
         {%- endfor -%}
+        <div class="logos_footer">
+          <div class="logo_footer">
+            <img height="54" width="54" src="{{ section.settings.logo_a | img_url: 'master' }}" alt="">
+          </div>
+
+          <div class="logo_footer">
+            <img height="64" width="64" src="{{ section.settings.logo_b | img_url: 'master' }}" alt="">
+          </div>
+        </div>
+
       </div>
     {%- endif -%}
 
@@ -79,7 +93,7 @@
       <div class="Footer__Copyright">
              <a href="https://www.lobstter.com" class="Footer__StoreName Heading u-h7 Link Link--secondary">site by lobsTTer</a>
    <a href="{{ routes.root_url }}" class="Footer__StoreName Heading u-h7 Link Link--secondary">© {{ shop.name }}</a>
-       
+
       </div>
 
 
@@ -111,6 +125,18 @@
       "label": "Show payment methods",
       "info": "Payment method icons are automatically displayed based on your Shopify payment methods.",
       "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_a",
+      "label": "footer logo1",
+      "info": "48 x 48px .png recommended"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_b",
+      "label": "footer logo2",
+      "info": "48 x 48px .png recommended"
     }
   ],
   "blocks": [

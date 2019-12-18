@@ -11,7 +11,7 @@
     "button_text_color": "#ffffff",
     "header_background": "#ffffff",
     "header_heading_color": "#454545",
-    "header_light_color": "#9d9d9d",
+    "header_light_color": "#373737",
     "footer_background": "#ffffff",
     "footer_heading_color": "#454545",
     "footer_text_color": "#000000",
@@ -124,14 +124,23 @@
             "settings": {
               "menu": "footer"
             }
+          },
+          "1576580269373": {
+            "type": "links",
+            "settings": {
+              "menu": "footer2"
+            }
           }
         },
         "block_order": [
           "1574336634289",
-          "1574336933921"
+          "1574336933921",
+          "1576580269373"
         ],
         "settings": {
-          "show_payment_methods": true
+          "show_payment_methods": true,
+          "logo_a": "shopify:\/\/shop_images\/1.png",
+          "logo_b": "shopify:\/\/shop_images\/vegan.png"
         }
       },
       "slideshow": {
@@ -230,7 +239,7 @@
           "enable_image_zoom": true,
           "tab_page_1_handle": "",
           "tab_page_2_handle": "",
-          "reviews_enabled": false,
+          "reviews_enabled": true,
           "featured_image_size": "large"
         }
       },
@@ -273,7 +282,7 @@
             "settings": {
               "collection": "best-sellers",
               "title": "Bestsellers",
-              "grid_items_count": 3,
+              "grid_items_count": 10,
               "button_text": "voir tous les produits"
             }
           }
@@ -283,7 +292,7 @@
         ],
         "settings": {
           "title": "",
-          "layout_mode": "grid",
+          "layout_mode": "carousel",
           "show_product_info": true,
           "show_vendor": false,
           "show_color_swatch": false,
@@ -297,7 +306,8 @@
           "page-faq-template-4": {
             "type": "separator",
             "settings": {
-              "title": "PRODUITS"
+              "title": "PRODUITS",
+              "show_top_border": false
             }
           },
           "page-faq-template-5": {
@@ -317,7 +327,8 @@
           "page-faq-template-0": {
             "type": "separator",
             "settings": {
-              "title": "LIVRAISON & RETOURS"
+              "title": "LIVRAISON & RETOURS",
+              "show_top_border": true
             }
           },
           "page-faq-template-1": {
@@ -344,7 +355,8 @@
           "1574337025786": {
             "type": "separator",
             "settings": {
-              "title": "PAIEMENT"
+              "title": "PAIEMENT",
+              "show_top_border": true
             }
           },
           "1574337034940": {
@@ -357,7 +369,8 @@
           "page-faq-template-7": {
             "type": "separator",
             "settings": {
-              "title": "AUTRES"
+              "title": "AUTRES",
+              "show_top_border": true
             }
           },
           "page-faq-template-8": {
@@ -406,7 +419,9 @@
           "page-contact-template-0",
           "1574337266555"
         ],
-        "settings": {}
+        "settings": {
+          "contact_description": "Vous avez besoin d'aide ? L’équipe THE MOMENT est disponible pour cela.<br>\nSi vous avez une question au sujet d'une commande, de produits ou du site, envoyez-nous un email<br> à team@itsthemoment.com ou utilisez le formulaire ci-dessous. Vous pouvez aussi jetez un oeil à<br>notre section FAQ — la réponse est peut-être déjà là !"
+        }
       },
       "1574415056316": {
         "type": "image-with-menu",
@@ -428,22 +443,22 @@
           "1575472026459": {
             "type": "logo",
             "settings": {
-              "image": "shopify:\/\/shop_images\/image_1_1a0b00ff-5086-429f-8751-ca34972255b5.png",
-              "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+              "image": "shopify:\/\/shop_images\/Marie-Claire-Logo.jpg",
+              "content": "<p>\" Semper statum uxoresque<br>mercenariae venerem est statum dotis <br>semper \"<\/p>"
             }
           },
           "1575472206429": {
             "type": "logo",
             "settings": {
               "image": "shopify:\/\/shop_images\/image_1_1a0b00ff-5086-429f-8751-ca34972255b5.png",
-              "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+              "content": "<p>\" Semper statum uxoresque<br> mercenariae venerem est statum<br> dotis semper eos uxoresque <br>mercenariae solvitur in \"<\/p>"
             }
           },
           "1575472215119": {
             "type": "logo",
             "settings": {
-              "image": "shopify:\/\/shop_images\/image_1_1a0b00ff-5086-429f-8751-ca34972255b5.png",
-              "content": "<p>Add your own custom content to give more information about your store, availability details...<\/p>"
+              "image": "shopify:\/\/shop_images\/Grazia-Logo.svg.png",
+              "content": "<p>\" Semper statum uxoresque<br>mercenariae venerem est statum<br>dotis semper eos uxoresque&nbsp;<br>mercenariae solvitur in \"<\/p>"
             }
           }
         },
@@ -482,22 +497,13 @@
           "grid_desktop_items_per_row": 3
         }
       },
-      "1576159485154": {
-        "type": "testsection",
-        "settings": {
-          "show_section": true,
-          "product_for_review": "creme-hydratante-hyaluronique-2",
-          "show_product_info": true,
-          "show_vendor": false
-        }
-      },
       "1576161138248": {
         "type": "instagram-feed",
         "settings": {
           "subheading": "@the.moment",
           "title": "INSTAGRAM",
-          "access_token": "",
-          "image_count": 15,
+          "access_token": "12321265613.d90570a.6e214114a0014d79ba2c5dbde07b54e5",
+          "image_count": 6,
           "button_text": "",
           "button_url": ""
         }
@@ -516,6 +522,21 @@
           "insta_url": "https:\/\/developer.mozilla.org\/fr\/docs\/Web\/CSS\/text-transform",
           "fb_url": ""
         }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "section_size": "small",
+          "image": "",
+          "text_color": "#000000",
+          "button_color": "#ffffff",
+          "subheading": "",
+          "title": "REJOIGNEZ LE MOUVEMENT,",
+          "title_two": "inscrivez-vous à la newsletter",
+          "content": "",
+          "insta_url": "",
+          "fb_url": ""
+        }
       }
     },
     "content_for_index": [
@@ -525,7 +546,6 @@
       "1573038978991",
       "1575470506020",
       "1575478328773",
-      "1576159485154",
       "1576161138248",
       "1576162910639"
     ]
