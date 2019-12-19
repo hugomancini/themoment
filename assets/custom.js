@@ -57,7 +57,61 @@ $(window).scroll(function (event) {
     }
 });
 
+$("#second_collection_filter").click(function() {
+  console.log("second")
+  $("#second_collection_filter").addClass("is-selected")
+  $("#touslesproduits_filter").removeClass("is-selected")
+  $("#third_collection_filter").removeClass("is-selected")
+  $("#fourth_collection_filter").removeClass("is-selected")
 
+  $("#first_collection").addClass("no_show")
+  $("#third_collection").addClass("no_show")
+  $("#fourth_collection").addClass("no_show")
+
+  $("#second_collection").removeClass("no_show")
+})
+
+$("#third_collection_filter").click(function() {
+  console.log("click")
+  $("#third_collection_filter").addClass("is-selected")
+  $("#touslesproduits_filter").removeClass("is-selected")
+  $("#second_collection_filter").removeClass("is-selected")
+  $("#fourth_collection_filter").removeClass("is-selected")
+
+  $("#first_collection").addClass("no_show")
+  $("#second_collection").addClass("no_show")
+  $("#fourth_collection").addClass("no_show")
+
+  $("#third_collection").removeClass("no_show")
+})
+
+$("#fourth_collection_filter").click(function() {
+  console.log("click")
+  $("#fourth_collection_filter").addClass("is-selected")
+  $("#touslesproduits_filter").removeClass("is-selected")
+  $("#second_collection_filter").removeClass("is-selected")
+  $("#third_collection_filter").removeClass("is-selected")
+
+  $("#first_collection").addClass("no_show")
+  $("#second_collection").addClass("no_show")
+  $("#third_collection").addClass("no_show")
+
+  $("#fourth_collection").removeClass("no_show")
+})
+
+$("#touslesproduits_filter").click(function() {
+  console.log("click")
+  $("#touslesproduits_filter").addClass("is-selected")
+  $("#fourth_collection_filter").removeClass("is-selected")
+  $("#second_collection_filter").removeClass("is-selected")
+  $("#third_collection_filter").removeClass("is-selected")
+
+  $("#fourth_collection").addClass("no_show")
+  $("#second_collection").addClass("no_show")
+  $("#third_collection").addClass("no_show")
+
+  $("#first_collection").removeClass("no_show")
+})
 
 
 

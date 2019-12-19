@@ -64,6 +64,10 @@ body {
   justify-content:center;
 }
 
+.no_show {
+  display:none;
+}
+
 
 h1, h2, h3, h4, h5, h6,
 .Heading, .u-h1, .u-h2, .u-h3, .u-h4, .u-h5, .u-h6, .u-h7, .u-h8 {
@@ -263,24 +267,6 @@ h1, h2, h3, h4, h5, h6,
     }
   }
 
-  // #shopify-section-1575478328773 {
-
-  //   .ProductList--carousel {
-  //     margin: 50px !important;
-  //   }
-
-  //   .Carousel {
-  //     padding-left: 3%;
-  //   }
-
-
-  //   .Carousel__Cell {
-  //     min-width: 320px;
-  //     width: 33%;
-  //     margin-right: 10px;
-  //   }
-  // }
-
 
 
 
@@ -456,7 +442,7 @@ h1, h2, h3, h4, h5, h6,
 }
 .insta-username {
   margin-top: 1px !important;
-  font-size: 3vw;
+  font-size: 2vw;
   text-align: center;
   text-decoration: underline;
   letter-spacing: 0vw;
@@ -664,6 +650,29 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* COLLECTIONS */
+
+
+#custom_collection_sidebar {
+  cursor: pointer;
+  top: 271px;
+  left: 20px;
+  position: fixed;
+  z-index: 9999;
+  .Linklist__Item > .Link {
+    text-transform: uppercase;
+  }
+
+  .is-selected::before {
+    content: none;
+  }
+
+  .is-selected {
+    text-decoration: underline;
+    padding-left: 0px !important;
+  }
+}
+
+
 .template-collection {
   .mid-size-title {
     margin-bottom: 20px;
@@ -673,10 +682,24 @@ h1, h2, h3, h4, h5, h6,
   }
   .CollectionInner__Sidebar {
     position: fixed;
-    top: 50% !important;
+    left: -36px;
     z-index: 9999;
-    .Linklist__Item>.Link {
+    top: 312px !important;
+    .Linklist__Item > .Link {
       text-transform: uppercase;
+    }
+
+    .is-selected::before {
+      content: none;
+    }
+
+    .is-selected {
+      text-decoration: underline;
+      padding-left: 0px !important;
+    }
+
+    .Heading {
+      display:none;
     }
   }
 }
