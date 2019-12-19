@@ -33,8 +33,29 @@
 // })
 
 $(function(){
-
+  console.log("hello hugo")
 })
+
+$(window).scroll(function (event) {
+    var scroll = $(window).scrollTop();
+    console.log(scroll)
+    if (scroll < 130) {
+      $(".is-active").removeClass("is-active");
+      $( ".FaqSummary li:nth-child(1)").addClass("is-active");
+    }
+    if (scroll > 130) {
+      $(".is-active").removeClass("is-active");
+      $( ".FaqSummary li:nth-child(2)").addClass("is-active");
+    }
+    if (scroll > 300) {
+      $(".is-active").removeClass("is-active");
+      $( ".FaqSummary li:nth-child(3)").addClass("is-active");
+    }
+    if (scroll > 400) {
+      $(".is-active").removeClass("is-active");
+      $( ".FaqSummary li:nth-child(4)").addClass("is-active");
+    }
+});
 
 
 

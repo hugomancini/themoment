@@ -95,6 +95,7 @@
         "type": "header",
         "settings": {
           "use_sticky_header": true,
+          "show_search_text": true,
           "logo": "shopify:\/\/shop_images\/logo_themoment.png",
           "logo_max_width": 145,
           "mobile_logo_max_width": 90,
@@ -116,7 +117,8 @@
             "settings": {
               "title": "",
               "content": "<p>TEAM@ITSTHEMOMENT.COM<\/p>",
-              "show_social_media": true
+              "show_social_media": false,
+              "show_copyright": true
             }
           },
           "1574336933921": {
@@ -138,9 +140,10 @@
           "1576580269373"
         ],
         "settings": {
-          "show_payment_methods": true,
+          "show_payment_methods": false,
           "logo_a": "shopify:\/\/shop_images\/1.png",
-          "logo_b": "shopify:\/\/shop_images\/vegan.png"
+          "logo_b": "shopify:\/\/shop_images\/vegan.png",
+          "subfooter": "Quam ob rem circumspecta cautela observatum est deinceps et cum edita montium petere coeperint grassatores, loci iniquitati milites cedunt. ubi autem in planitie potuerint\nreperiri, quod contingit adsidue, nec exsertare lacertos nec crispare permissi tela, quae vehunt bina vel terna, pecudum ritu inertium trucidantur <3"
         }
       },
       "slideshow": {
@@ -282,7 +285,7 @@
             "settings": {
               "collection": "best-sellers",
               "title": "Bestsellers",
-              "grid_items_count": 10,
+              "grid_items_count": 33,
               "button_text": "voir tous les produits"
             }
           }
