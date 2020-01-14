@@ -1,25 +1,4 @@
-{%- if section.settings.intro != blank -%}
-<section class="Section Section--spacingNormal statement">
-    <div class="FeatureText__ContentWrapper__Intro">
-      <div class="FeatureText__Content">
-          <header class="SectionHeader">
-              <div class="SectionHeader__Description Rte">
-                {{ section.settings.intro }}
-                {%- if section.settings.link_text != blank -%}
-                  <a href="{{ section.settings.link_url }}" class="ButtonGroup__Item Button" id="Button__Text__1">{{ section.settings.link_text | escape }}</a>
-                {%- endif -%}
-              </div>
-
-          </header>
-      </div>
-    </div>
-</section>
-{%- endif -%}
-
-{%- assign tags_menu_handle = section.settings.tags_menu -%}
-{%- assign tags_menu = linklists[tags_menu_handle] -%}
-
-<section id="section_id_{{ section.id }}" class="Section {% unless section.settings.image %}Section--spacingNormal{% endunless %}">
+<section class="Section {% unless section.settings.image %}Section--spacingNormal{% endunless %}">
   {%- capture section_content -%}
     <div class="FeatureText__ContentWrapper">
       <div class="FeatureText__Content">
@@ -30,32 +9,24 @@
             {%- endif -%}
 
             {%- if section.settings.title != blank -%}
-              <h2 class="SectionHeader__Heading Heading u-h1 down-size-title">{{ section.settings.title | escape }}</h2>
+              <h2 class="SectionHeader__Heading Heading u-h1">{{ section.settings.title | escape }}</h2>
             {%- endif -%}
 
             {%- if section.settings.content != blank -%}
               <div class="SectionHeader__Description Rte">
-                {{ section.settings.content }}
+                {% for block in section.blocks %}
+                  <p>{{ block.settings.collection }}</p>
+                  <p>{{ block.settings.collection.url }}</p>
+                  <p>{{ block.settings.collection.title }}</p>
+                  <p>{{ block.settings.collection.id }}</p>
+                {% endfor %}
+
               </div>
             {%- endif -%}
 
-            {%- if section.settings.html != blank -%}
-              <div class="SectionHeader__Description Rte">
-                {{ section.settings.html }}
-              </div>
+            {%- if section.settings.link_text != blank -%}
+              <a href="{{ section.settings.link_url }}" class="Link Link--underline">{{ section.settings.link_text | escape }}</a>
             {%- endif -%}
-
-            {%- if tags_menu.links != blank -%}
-              <ul class="Linklist">
-                {%- for link in tags_menu.links -%}
-                  <li class="Linklist__Item inline-menu">
-                    <a href="{{ sub_sub_link.url }}" class="Link Link--secondary">{{ link.title | escape }}</a>
-                  </li>
-                {%- endfor -%}
-              </ul>
-            {%- endif -%}
-
-
           </header>
         {%- endif -%}
       </div>
@@ -92,25 +63,9 @@
 
 {% schema %}
 {
-  "name": "Image with menu",
-  "class": "shopify-section section-tags",
+  "name": "Rich text with link",
+  "class": "shopify-section--bordered",
   "settings": [
-    {
-      "type": "richtext",
-      "id": "intro",
-      "label": "Text",
-      "default": "<p>Add your own custom content to give more information about your store, availability details...</p>"
-    },
-    {
-      "type": "text",
-      "id": "link_text",
-      "label": "Link text"
-    },
-    {
-      "type": "url",
-      "id": "link_url",
-      "label": "Link URL"
-    },
     {
       "type": "text",
       "id": "subheading",
@@ -122,17 +77,6 @@
       "id": "title",
       "label": "Heading",
       "default": "Title"
-    },
-    {
-      "type": "html",
-      "id": "html",
-      "label": "Text",
-      "default": "<p>Add your own custom content to give more information about your store, availability details...</p>"
-    },
-    {
-      "type": "link_list",
-      "id": "tags_menu",
-      "label": "Menu"
     },
     {
       "type": "image_picker",
@@ -161,12 +105,35 @@
       "id": "content",
       "label": "Text",
       "default": "<p>Add your own custom content to give more information about your store, availability details...</p>"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "category": "Advanced",
-      "name": "Image with menu",
+      "category": "Text",
+      "name": "Rich text with image",
       "settings": {}
     }
   ]

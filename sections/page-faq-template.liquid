@@ -25,7 +25,6 @@
 
         {%- when 'question' -%}
           <div class="Faq__Item {% if section.blocks[forloop.index].type == 'separator' or forloop.last %}Faq__Item--lastOfSection{% endif %}" aria-expanded="false" {{ block.shopify_attributes }}>
-            <span class="Faq__Icon">{% render 'icon' with 'select-arrow-right' %}</span>
 
             <div class="Faq__ItemWrapper">
               <button class="Faq__Question">{{ block.settings.title | escape }}</button>
@@ -36,6 +35,8 @@
                 </div>
               </div>
             </div>
+
+            <span class="Faq__Icon">{% render 'icon' with 'select-arrow' %}</span>
           </div>
       {%- endcase -%}
     {%- endfor -%}

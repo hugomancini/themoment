@@ -95,7 +95,6 @@
         "type": "header",
         "settings": {
           "use_sticky_header": true,
-          "show_search_text": true,
           "logo": "shopify:\/\/shop_images\/logo_themoment.png",
           "logo_max_width": 145,
           "mobile_logo_max_width": 90,
@@ -160,7 +159,7 @@
               "subheading": "",
               "title": "les soins de demain, maintenant.",
               "button_1_text": "voir les produits",
-              "button_1_link": "shopify:\/\/collections\/all",
+              "button_1_link": "shopify:\/\/pages\/collections",
               "button_2_text": "",
               "button_2_link": ""
             }
@@ -249,7 +248,7 @@
       "product-recommendations": {
         "type": "product-recommendations",
         "settings": {
-          "show_product_recommendations": true,
+          "show_product_recommendations": false,
           "heading": "You may also like",
           "show_product_info": true,
           "show_vendor": false,
@@ -285,6 +284,7 @@
             "settings": {
               "collection": "best-sellers",
               "title": "Bestsellers",
+              "long_text": "",
               "grid_items_count": 33,
               "button_text": "voir tous les produits"
             }
@@ -431,7 +431,7 @@
         "settings": {
           "intro": "<p>THE MOMENT est une marque de cosm&eacute;tiques unisexe fran&ccedil;aise qui&nbsp; a pour mission de cr&eacute;er des soins sans aucun compromis. Des soins haute-performance et responsables - Sans vous ruiner.<\/p>",
           "link_text": "En savoir plus",
-          "link_url": "#",
+          "link_url": "shopify:\/\/pages\/a-propos",
           "subheading": "",
           "title": "Nos produits sont :",
           "tags_menu": "tags-menu",
@@ -482,7 +482,8 @@
             "settings": {
               "collection": "nouveautes",
               "title": "",
-              "grid_items_count": 3,
+              "long_text": "",
+              "grid_items_count": 18,
               "button_text": "Voir tous les produits"
             }
           }
@@ -492,7 +493,7 @@
         ],
         "settings": {
           "title": "",
-          "layout_mode": "grid",
+          "layout_mode": "carousel",
           "show_product_info": true,
           "show_vendor": false,
           "show_color_swatch": false,
@@ -506,7 +507,7 @@
           "subheading": "@the.moment",
           "title": "INSTAGRAM",
           "access_token": "12321265613.d90570a.6e214114a0014d79ba2c5dbde07b54e5",
-          "image_count": 6,
+          "image_count": 15,
           "button_text": "",
           "button_url": ""
         }
@@ -539,6 +540,189 @@
           "content": "",
           "insta_url": "",
           "fb_url": ""
+        }
+      },
+      "featured-collections": {
+        "type": "featured-collections",
+        "blocks": {
+          "1576763465937": {
+            "type": "collection",
+            "settings": {
+              "collection": "all",
+              "title": "",
+              "long_text": "Des formules composées de 10 ingrédients ou moins, d'origine naturelle et sans superflu. Nos produits de la gamme TEN, sans parfum, sont adaptés aux peaux sensibles. Des shampoings à 94% d'origine naturelle, sans sulfates ni silicones, à activer grâce à des concentrés à base d’huiles essentielles. Chaque concentré cible une problématique de cuir chevelu précise.",
+              "grid_items_count": 8,
+              "button_text": "View all products"
+            }
+          }
+        },
+        "block_order": [
+          "1576763465937"
+        ],
+        "settings": {
+          "title": "",
+          "layout_mode": "grid",
+          "show_product_info": true,
+          "show_vendor": false,
+          "show_color_swatch": false,
+          "grid_mobile_items_per_row": "1",
+          "grid_desktop_items_per_row": 3
+        }
+      },
+      "instagram-feed": {
+        "type": "instagram-feed",
+        "settings": {
+          "subheading": "@themoment",
+          "title": "Follow us",
+          "access_token": "12321265613.d90570a.6e214114a0014d79ba2c5dbde07b54e5",
+          "image_count": 15,
+          "button_text": "",
+          "button_url": ""
+        }
+      },
+      "featured-collections-two": {
+        "type": "featured-collections-two",
+        "blocks": {
+          "1576763646585": {
+            "type": "collection",
+            "settings": {
+              "collection": "anti-imperfections",
+              "title": "",
+              "long_text": "Des formules composées de 10 ingrédients ou moins, d'origine naturelle et sans superflu. Nos produits de la gamme TEN, sans parfum, sont adaptés aux peaux sensibles. Des shampoings à 94% d'origine naturelle, sans sulfates ni silicones, à activer grâce à des concentrés à base d’huiles essentielles. Chaque concentré cible une problématique de cuir chevelu précise.",
+              "grid_items_count": 8,
+              "button_text": "View all products"
+            }
+          }
+        },
+        "block_order": [
+          "1576763646585"
+        ],
+        "settings": {
+          "title": "",
+          "layout_mode": "grid",
+          "show_product_info": true,
+          "show_vendor": false,
+          "show_color_swatch": false,
+          "grid_mobile_items_per_row": "1",
+          "grid_desktop_items_per_row": 3
+        }
+      },
+      "featured-collections-three": {
+        "type": "featured-collections-three",
+        "blocks": {
+          "1576764583065": {
+            "type": "collection",
+            "settings": {
+              "collection": "antirides",
+              "title": "",
+              "long_text": "Des formules composées de 10 ingrédients ou moins, d'origine naturelle et sans superflu. Nos produits de la gamme TEN, sans parfum, sont adaptés aux peaux sensibles. Des shampoings à 94% d'origine naturelle, sans sulfates ni silicones, à activer grâce à des concentrés à base d’huiles essentielles. Chaque concentré cible une problématique de cuir chevelu précise.",
+              "grid_items_count": 8,
+              "button_text": "View all products"
+            }
+          }
+        },
+        "block_order": [
+          "1576764583065"
+        ],
+        "settings": {
+          "title": "",
+          "layout_mode": "grid",
+          "show_product_info": true,
+          "show_vendor": false,
+          "show_color_swatch": false,
+          "grid_mobile_items_per_row": "1",
+          "grid_desktop_items_per_row": 3
+        }
+      },
+      "featured-collections-four": {
+        "type": "featured-collections-four",
+        "blocks": {
+          "1576764597262": {
+            "type": "collection",
+            "settings": {
+              "collection": "eclat",
+              "title": "",
+              "long_text": "Des formules composées de 10 ingrédients ou moins, d'origine naturelle et sans superflu. Nos produits de la gamme TEN, sans parfum, sont adaptés aux peaux sensibles. Des shampoings à 94% d'origine naturelle, sans sulfates ni silicones, à activer grâce à des concentrés à base d’huiles essentielles. Chaque concentré cible une problématique de cuir chevelu précise.",
+              "grid_items_count": 8,
+              "button_text": "View all products"
+            }
+          }
+        },
+        "block_order": [
+          "1576764597262"
+        ],
+        "settings": {
+          "title": "",
+          "layout_mode": "grid",
+          "show_product_info": true,
+          "show_vendor": false,
+          "show_color_swatch": false,
+          "grid_mobile_items_per_row": "1",
+          "grid_desktop_items_per_row": 3
+        }
+      },
+      "featured-collections-five": {
+        "type": "featured-collections-five",
+        "blocks": {
+          "1576833896249": {
+            "type": "collection",
+            "settings": {
+              "collection": "hydratants-et-nourrissants",
+              "title": "",
+              "long_text": "Des formules composées de 10 ingrédients ou moins, d'origine naturelle et sans superflu. Nos produits de la gamme TEN, sans parfum, sont adaptés aux peaux sensibles. Des shampoings à 94% d'origine naturelle, sans sulfates ni silicones, à activer grâce à des concentrés à base d’huiles essentielles. Chaque concentré cible une problématique de cuir chevelu précise.",
+              "grid_items_count": 8,
+              "button_text": "View all products"
+            }
+          }
+        },
+        "block_order": [
+          "1576833896249"
+        ],
+        "settings": {
+          "title": "",
+          "layout_mode": "grid",
+          "show_product_info": true,
+          "show_vendor": false,
+          "show_color_swatch": false,
+          "grid_mobile_items_per_row": "1",
+          "grid_desktop_items_per_row": 3
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "collections_to_show": "all",
+          "image_size": "normal",
+          "add_spacing": true,
+          "expand_collection": false,
+          "apply_overlay": true,
+          "text_color": "#ffffff",
+          "button_color": "#363636"
+        }
+      },
+      "product-custom-template": {
+        "type": "product-custom-template",
+        "settings": {
+          "show_share_buttons": true,
+          "show_vendor": true,
+          "show_sku": false,
+          "description_below_add_to_cart": false,
+          "selector_mode": "dropdown",
+          "show_color_swatch": false,
+          "show_color_carousel": false,
+          "show_quantity_selector": true,
+          "show_inventory_quantity": false,
+          "inventory_quantity_threshold": 0,
+          "show_price_in_button": false,
+          "show_payment_button": true,
+          "image_size": "large",
+          "stack_images": true,
+          "show_thumbnails": true,
+          "enable_image_zoom": true,
+          "tab_page_1_handle": "",
+          "tab_page_2_handle": "",
+          "reviews_enabled": false,
+          "featured_image_size": "large"
         }
       }
     },

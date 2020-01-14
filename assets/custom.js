@@ -32,13 +32,13 @@
 // 	resizeSlideshow();
 // })
 
-$(function(){
-  console.log("hello hugo")
-})
+// $(function(){
+//   console.log("hello hugo")
+// })
 
 $(window).scroll(function (event) {
     var scroll = $(window).scrollTop();
-    console.log(scroll)
+    //console.log(scroll)
     if (scroll < 130) {
       $(".is-active").removeClass("is-active");
       $( ".FaqSummary li:nth-child(1)").addClass("is-active");
@@ -60,57 +60,92 @@ $(window).scroll(function (event) {
 $("#second_collection_filter").click(function() {
   console.log("second")
   $("#second_collection_filter").addClass("is-selected")
+
   $("#touslesproduits_filter").removeClass("is-selected")
   $("#third_collection_filter").removeClass("is-selected")
   $("#fourth_collection_filter").removeClass("is-selected")
+  $("#fifth_collection_filter").removeClass("is-selected")
 
-  $("#first_collection").addClass("no_show")
-  $("#third_collection").addClass("no_show")
-  $("#fourth_collection").addClass("no_show")
+  $("#first_collection").fadeOut(10)
+  $("#third_collection").fadeOut(10)
+  $("#fourth_collection").fadeOut(10)
+  $("#fifth_collection").fadeOut(10)
 
-  $("#second_collection").removeClass("no_show")
+  $("#second_collection").fadeIn(1200)
+
 })
 
 $("#third_collection_filter").click(function() {
   console.log("click")
   $("#third_collection_filter").addClass("is-selected")
+
   $("#touslesproduits_filter").removeClass("is-selected")
   $("#second_collection_filter").removeClass("is-selected")
   $("#fourth_collection_filter").removeClass("is-selected")
+  $("#fifth_collection_filter").removeClass("is-selected")
 
-  $("#first_collection").addClass("no_show")
-  $("#second_collection").addClass("no_show")
-  $("#fourth_collection").addClass("no_show")
 
-  $("#third_collection").removeClass("no_show")
+  $("#first_collection").fadeOut(10)
+  $("#second_collection").fadeOut(10)
+  $("#fourth_collection").fadeOut(10)
+  $("#fifth_collection").fadeOut(10)
+
+  $("#third_collection").fadeIn(1200)
 })
 
 $("#fourth_collection_filter").click(function() {
   console.log("click")
   $("#fourth_collection_filter").addClass("is-selected")
+
   $("#touslesproduits_filter").removeClass("is-selected")
   $("#second_collection_filter").removeClass("is-selected")
   $("#third_collection_filter").removeClass("is-selected")
+  $("#fifth_collection_filter").removeClass("is-selected")
 
-  $("#first_collection").addClass("no_show")
-  $("#second_collection").addClass("no_show")
-  $("#third_collection").addClass("no_show")
 
-  $("#fourth_collection").removeClass("no_show")
+  $("#first_collection").fadeOut(10)
+  $("#second_collection").fadeOut(10)
+  $("#third_collection").fadeOut(10)
+  $("#fifth_collection").fadeOut(10)
+
+  $("#fourth_collection").fadeIn(1200)
+
+})
+
+$("#fifth_collection_filter").click(function() {
+  console.log("click")
+  $("#fifth_collection_filter").addClass("is-selected")
+
+  $("#touslesproduits_filter").removeClass("is-selected")
+  $("#second_collection_filter").removeClass("is-selected")
+  $("#third_collection_filter").removeClass("is-selected")
+  $("#fourth_collection_filter").removeClass("is-selected")
+
+  $("#first_collection").fadeOut(10)
+  $("#second_collection").fadeOut(10)
+  $("#third_collection").fadeOut(10)
+  $("#fourth_collection").fadeOut(10)
+
+  $("#fifth_collection").fadeIn(1200)
+
 })
 
 $("#touslesproduits_filter").click(function() {
   console.log("click")
   $("#touslesproduits_filter").addClass("is-selected")
+
   $("#fourth_collection_filter").removeClass("is-selected")
   $("#second_collection_filter").removeClass("is-selected")
   $("#third_collection_filter").removeClass("is-selected")
+  $("#fifth_collection_filter").removeClass("is-selected")
 
-  $("#fourth_collection").addClass("no_show")
-  $("#second_collection").addClass("no_show")
-  $("#third_collection").addClass("no_show")
+  $("#fourth_collection").fadeOut(10)
+  $("#second_collection").fadeOut(10)
+  $("#third_collection").fadeOut(10)
+  $("#fifth_collection").fadeOut(10)
 
-  $("#first_collection").removeClass("no_show")
+  $("#first_collection").fadeIn(1200)
+
 })
 
 

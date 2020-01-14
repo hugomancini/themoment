@@ -53,7 +53,10 @@
     </div>
   </header>
 
+
   {%- for block in section.blocks -%}
+    <div class="collection_description">{{ block.settings.long_text }}</div>
+
     {%- assign collection = collections[block.settings.collection] -%}
 
     <div class="TabPanel" id="block-{{ block.id }}" aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}" role="tabpanel" {{ block.shopify_attributes }}>
@@ -130,7 +133,7 @@
       {%- if block.settings.button_text != blank -%}
         <div class="Container">
           <div class="SectionFooter">
-            <a href="{{ collection.url }}" class="Button Button--primary" id="Button__Text__2">{{ block.settings.button_text | escape }}</a>
+            <a href="https://itsthemoment.myshopify.com/pages/collections" class="Button Button--primary" id="Button__Text__2">{{ block.settings.button_text | escape }}</a>
           </div>
         </div>
       {%- endif -%}
@@ -235,6 +238,12 @@
           "id": "title",
           "label": "Heading",
           "info": "If none is set, collection title is used."
+        },
+        {
+          "type": "textarea",
+          "id": "long_text",
+          "label": "Collection presentation",
+          "default": "Des formules composées de 10 ingrédients ou moins, d'origine naturelle et sans superflu. Nos produits de la gamme TEN, sans parfum, sont adaptés aux peaux sensibles. Des shampoings à 94% d'origine naturelle, sans sulfates ni silicones, à activer grâce à des concentrés à base d’huiles essentielles. Chaque concentré cible une problématique de cuir chevelu précise."
         },
         {
           "type": "range",
