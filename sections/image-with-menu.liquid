@@ -1,5 +1,5 @@
 {%- if section.settings.intro != blank -%}
-<section class="Section Section--spacingNormal statement">
+<section class="Section Section--spacingNormal state">
     <div class="FeatureText__ContentWrapper__Intro">
       <div class="FeatureText__Content">
           <header class="SectionHeader">
@@ -39,17 +39,11 @@
               </div>
             {%- endif -%}
 
-            {%- if section.settings.html != blank -%}
-              <div class="SectionHeader__Description Rte">
-                {{ section.settings.html }}
-              </div>
-            {%- endif -%}
-
             {%- if tags_menu.links != blank -%}
-              <ul class="Linklist">
+              <ul class="Linklist para_tags">
                 {%- for link in tags_menu.links -%}
                   <li class="Linklist__Item inline-menu">
-                    <a href="{{ sub_sub_link.url }}" class="Link Link--secondary">{{ link.title | escape }}</a>
+                    <a href="{{ link.url }}" class="Link Link--secondary para_tag">{{ link.title | escape }}</a>
                   </li>
                 {%- endfor -%}
               </ul>
@@ -67,10 +61,9 @@
       <div class="FeatureText__ImageWrapper">
         {%- capture supported_sizes -%}{%- render 'image-size', sizes: '400,600,700,800,900,1000,1200', image: section.settings.image -%}{%- endcapture -%}
 
-        <div class="AspectRatio" style="max-width: {{ section.settings.image.width }}px; --aspect-ratio: {{ section.settings.image.aspect_ratio }}">
+        <div class="AspectRatio" style="--aspect-ratio: {{ section.settings.image.aspect_ratio }}">
           {%- assign image_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-          <img class="Image--lazyLoad Image--slide{{ section.settings.image_position | capitalize }}" data-src="{{ image_url }}" data-expand="-200" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
-
+          <img class="Image--lazyLoad" data-src="{{ image_url }}" data-expand="-200" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
           <noscript>
             <img src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.image.alt | escape }}">
           </noscript>
@@ -122,12 +115,6 @@
       "id": "title",
       "label": "Heading",
       "default": "Title"
-    },
-    {
-      "type": "html",
-      "id": "html",
-      "label": "Text",
-      "default": "<p>Add your own custom content to give more information about your store, availability details...</p>"
     },
     {
       "type": "link_list",

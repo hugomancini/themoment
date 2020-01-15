@@ -68,6 +68,15 @@ body {
   display:none;
 }
 
+.custom_Button {
+  color: white;
+  background: black;
+  font-family: 'SuperRaw-Bold' !important;
+  &:hover {
+    color:white !important;
+  }
+}
+
 .is-active {
   span {
     // border-bottom: 2px solid;
@@ -99,9 +108,6 @@ h1, h3, h4, h5, h6,
   }
 }
 
-a:hover {
-  color: #9B9B9B !important;
-}
 
 .Button:not(.ProductForm__AddToCart):not(.Cart__Checkout):not(.Form__Submit) {
   font-size: 26px;
@@ -259,6 +265,12 @@ a:hover {
 
 #section_id_1574415056316 {
   margin-top: 80px;
+
+  .AspectRatio > img {
+    height: 85% !important;
+    width: 85% !important;
+  }
+
 }
 
 // S4
@@ -360,6 +372,7 @@ a:hover {
 
 
     .Carousel__Cell {
+      padding-top: 20px;
       min-width: 320px;
       width: calc(33% - 10px);
       margin-right: 10px;
@@ -599,7 +612,7 @@ a:hover {
 }
 
 .insta-title {
-  margin-top: 100px !important;
+  margin-top: 80px !important;
 }
 .insta-username {
   font-family: "SuperRaw-Bold" !important;
@@ -701,8 +714,25 @@ a:hover {
 #shopify-section-1576161138248 {
 
   .flickity-prev-next-button {
-    display:none;
+    background-color: black;
+    color: white;
+    width: 60px;
+    height: 50px;
+    border-radius: 0px !important;
+
+    svg {
+      height: 35px;
+    }
   }
+
+  .next {
+    right: -15px;
+  }
+
+  .previous {
+    left: -15px;
+  }
+
   .SectionHeader {
     margin-top: 0px !important;
     margin-bottom: 0px !important;
@@ -755,9 +785,12 @@ a:hover {
   }
 
   .para_tag {
-    text-decoration: none !important;
     font-size: 30px;
     font-family: "Wasa-Regular";
+
+    &:hover {
+      text-decoration: underline !important;
+    }
   }
 
   .para_tags {

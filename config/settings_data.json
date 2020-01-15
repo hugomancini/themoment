@@ -273,7 +273,7 @@
         "settings": {
           "subheading": "",
           "title": "",
-          "html": "<div class=\"full-size-title\">aucun compromis<span class=\"dot\"><\/span>\n<\/div>"
+          "html": "<div class=\"full-size-title\">#FORBETTERSKINCARE<\/div>"
         }
       },
       "1573038978991": {
@@ -434,8 +434,9 @@
           "link_url": "shopify:\/\/pages\/a-propos",
           "subheading": "",
           "title": "Nos produits sont :",
+          "html": "",
           "tags_menu": "tags-menu",
-          "image": "shopify:\/\/shop_images\/tubes.jpg",
+          "image": "shopify:\/\/shop_images\/tubes_400x_0b983d42-5e03-4eed-a9a2-45e4902d1c1b.jpg",
           "image_position": "left",
           "content": ""
         }

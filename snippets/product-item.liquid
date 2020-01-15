@@ -178,7 +178,7 @@
             <input type="hidden" name="id" data-sku="{{ product.variants.first.sku }}" value="{{ product.variants.first.id }}" />
             <input type="hidden" name="quantity" value="1">
           </div>
-          <button type="submit" class="ProductForm__AddToCart Button {% if product.variants.first.available %}Button--primary{% else %}Button--secondary{% endif %} Button--full" {% if product.variants.first.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %} id="ProductForm__AddToCart__{{product.id}}">
+          <button type="submit" class="ProductForm__AddToCart Button {% if product.variants.first.available %}custom_Button{% else %}Button--secondary{% endif %} Button--full" {% if product.variants.first.available %}data-action="add-to-cart"{% else %}disabled="disabled"{% endif %} id="ProductForm__AddToCart__{{product.id}}">
         {%- if product.variants.first.available -%}
           <span>{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t }}{% else %}{{ 'product.form.add_to_cart' | t }}{% endif %}</span>
             <span class="Button__SeparatorDot"></span>
