@@ -149,12 +149,37 @@ $("#touslesproduits_filter").click(function() {
 })
 
 
-// $(".wgcurrent").click(function(e) {
-//   console.log(this)
-//   $(".wgcurrent").toggle("no_show")
-// })
+
+var position = $(window).scrollTop();
+
+// should start at 0
+
+// $(window).scroll(function() {
+//     var scroll = $(window).scrollTop();
+//     if(scroll - position > 40) {
+//         console.log('scrollDown');
+//         $(".Header__Wrapper").slideUp( 0, function() {
+//     // Animation complete.
+//   });
+//     } if (scroll - position < - 20) {
+//          console.log('scrollUp');
+//         $(".Header__Wrapper").slideDown( "slow", function() {
+//     // Animation complete.
+//   });
+//     }
+//     position = scroll;
+// });
 
 
+// TOGGGLING NAVBAR OK BELOW
+
+// $( document ).ready(function() {
+//   $('#shopify-section-header').toggleNav({
+//     slideEffect :true,
+//     speed : 300
+//   });
+//   console.log( "ready!" );
+// });
 
 
 
