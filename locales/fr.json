@@ -317,7 +317,7 @@
         "one": "Seulement {{count}} exemplaire in stock !",
         "other": "Seulement {{count}} exemplaires en stock !"
       },
-      "add_to_cart": "Ajouter au panier",
+      "add_to_cart": "Ajouter",
       "sold_out": "Rupture",
       "pre_order": "Pré-commander",
       "unavailable": "Indisponible",

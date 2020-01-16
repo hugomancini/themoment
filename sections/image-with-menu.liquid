@@ -22,7 +22,7 @@
 <section id="section_id_{{ section.id }}" class="Section {% unless section.settings.image %}Section--spacingNormal{% endunless %}">
   {%- capture section_content -%}
     <div class="FeatureText__ContentWrapper">
-      <div class="FeatureText__Content">
+      <div class="FeatureText__Content" style="padding-top: 124px;">
         {%- if section.settings.subheading != blank or section.settings.title != blank -%}
           <header class="SectionHeader">
             {%- if section.settings.subheading != blank -%}
@@ -39,7 +39,7 @@
               </div>
             {%- endif -%}
 
-            {%- if tags_menu.links != blank -%}
+         <!--    {%- if tags_menu.links != blank -%}
               <ul class="Linklist para_tags">
                 {%- for link in tags_menu.links -%}
                   <li class="Linklist__Item inline-menu">
@@ -47,6 +47,15 @@
                   </li>
                 {%- endfor -%}
               </ul>
+            {%- endif -%} -->
+
+
+            {%- if tags_menu.links != blank -%}
+            <p class="para_tags">
+                {%- for link in tags_menu.links -%}
+                    <a href="{{ link.url }}" class="Link Link--secondary para_tag">{{ link.title | escape }} </a>
+                {%- endfor -%}
+            </p>
             {%- endif -%}
 
 

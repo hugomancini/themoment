@@ -149,13 +149,10 @@ $("#touslesproduits_filter").click(function() {
 })
 
 
-
-
-
-
-
-
-
+// $(".wgcurrent").click(function(e) {
+//   console.log(this)
+//   $(".wgcurrent").toggle("no_show")
+// })
 
 
 
